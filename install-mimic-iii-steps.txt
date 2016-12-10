@@ -50,13 +50,14 @@ sudo apt-get install postgresql libpq-dev postgresql-client postgresql-client-co
 
 sudo -i -u postgres
 
-createuser suraj -P –interactive
-Ctrl+d
+createuser suraj -P –-interactive
+
 createdb testpython
 postgres@ubuntu:~$ psql testpython
 testpython=# \dt or \dd
 
 \q to quit
+Ctrl+d to log out of postgress to virtualenvwrapper
 
 ***** Installing psycopg2
 $ pip install psycopg2
