@@ -1,0 +1,58 @@
+************Tutorial for installing MIMIC-III-Linux*******************
+
+***** Install Ubuntu 16.04
+
+***** Install VirtualBox- 5.0 only
+www.virtualbox.org/wiki/Download_Old_Builds_5_0.html
+
+***** Install Vagrant 1.8.6 deb only
+https://releases.hashicorp.com/vagrant/
+
+$ vagrant box add nshaas/ubuntu-14.04-large (takes time)
+
+Check : $ vagrant box list
+
+$ sudo apt-get install python-pip python-dev build-essential 
+$ sudo pip install --upgrade pip 
+$ sudo pip install --upgrade virtualenv
+$ sudo pip install virtualenvwrapper
+
+$ sudo apt install git
+$ git clone https://github.com/nsh87/mimic-iii-vm.git
+
+$ cd mimic-iii-vm
+
+$ sudo apt install vim
+$ vim requirements.txt and delete psycopg2 line; save and exit by ESC, :wq
+
+$ mkvirtualenv mimic-iii-vm -a `pwd` -r requirements.txt
+
+Note : mkvirtualenv [-a project_path] [-i package] [-r requirements_file] [virtualenv options] ENVNAME
+
+
+***** Installing PostgreSQL and Psycopg2
+https://www.fullstackpython.com/blog/postgresql-python-3-psycopg2-ubuntu-1604.html
+Note : https://www.fullstackpython.com/postgresql.html
+
+***** Install PostgreSQL
+sudo apt-get install postgresql libpq-dev postgresql-client postgresql-client-common
+
+sudo -i -u postgres
+
+createuser suraj -P –interactive
+Ctrl+d
+createdb testpython
+postgres@ubuntu:~$ psql testpython
+testpython=# \dt or \dd
+
+\q to quit
+
+***** Installing psycopg2
+$ pip install psycopg2
+
+$ vagrant up
+
+Asks for physionet username : ………. and password: …………
+Rest of the steps are automated.
+
+If interrupted : $ vagrant –provision or vagrant reload –provision
