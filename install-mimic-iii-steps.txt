@@ -24,6 +24,17 @@ $ cd mimic-iii-vm
 
 $ sudo apt install vim
 $ vim requirements.txt and delete psycopg2 line; save and exit by ESC, :wq
+$ cd
+$ vim .bashrc
+Add following 3 lines at the end of the file:
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+
+To save and quit- ESC, :wq
+
+$ cd mimic-iii-vm
 
 $ mkvirtualenv mimic-iii-vm -a `pwd` -r requirements.txt
 
